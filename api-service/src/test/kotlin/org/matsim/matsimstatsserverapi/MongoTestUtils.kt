@@ -3,12 +3,7 @@ package org.matsim.matsimstatsserverapi
 import com.github.fakemongo.Fongo
 import com.github.fakemongo.junit.FongoRule
 import com.mongodb.MongoClient
-import org.junit.rules.TestRule
-import org.junit.runner.Description
-import org.junit.runners.model.Statement
 import org.matsim.matsimstatsserverapi.repository.StatsRepository
-import org.matsim.matsimstatsserverapi.service.StatsService
-import org.matsim.matsimstatsserverapi.service.StatsServiceImpl
 import org.matsim.usagestats.*
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
