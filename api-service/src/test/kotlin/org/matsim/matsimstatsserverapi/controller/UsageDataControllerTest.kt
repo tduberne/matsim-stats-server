@@ -1,9 +1,14 @@
 package org.matsim.matsimstatsserverapi.controller
 
+import com.github.fakemongo.junit.FongoRule
+import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.matsim.matsimstatsserverapi.MongoTestRule
+import org.matsim.matsimstatsserverapi.service.StatsService
+import org.matsim.usagestats.ScenarioData
+import org.matsim.usagestats.UsageStats
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
@@ -19,11 +24,14 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 @SpringBootTest
 @AutoConfigureMockMvc
 class UsageDataControllerTest {
-    @get:Rule @set:Autowired
-    lateinit var mongoRule: MongoTestRule
+    @get:Rule
+    var fongoRule = FongoRule()
 
     @Autowired
     lateinit var mvc: MockMvc
+
+    @Autowired
+    lateinit var statsService: StatsService
 
     @Test
     fun testPost() {
@@ -31,8 +39,12 @@ class UsageDataControllerTest {
                 MockMvcRequestBuilders
                         .post("/api/data")
                         .contentType("application/json")
-                        .content("{\"scenario\": {\"nLinks\": 1}}"))
+                        .content("{\"scenario\": {\"nLinks\": 42}}"))
                 .andExpect(MockMvcResultMatchers.status().isOk)
-        // TODO: test that data is in DB
+
+        Assert.assertEquals("unexpected number of entries", 1, statsService.allEntries().size)
+        Assert.assertEquals("unexpected data",
+                UsageStats(scenario = ScenarioData(nLinks = 42)),
+                statsService.allEntries()[0])
     }
 }

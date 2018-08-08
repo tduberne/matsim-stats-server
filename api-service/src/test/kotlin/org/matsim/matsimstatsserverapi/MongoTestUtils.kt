@@ -36,23 +36,19 @@ class TestMongoConfiguration : AbstractMongoConfiguration() {
 
 @Component
 class MongoTestRule  @Autowired constructor(val statsRepository: StatsRepository) : FongoRule() {
-    var initializeData: Boolean = true
-
     override fun before() {
         // inits DB
         super.before()
 
-        if (initializeData) {
-            // add a few entries
-            statsRepository.save(
-                    UsageStats(
-                            MemoryData(120.0, 42.0),
-                            ScenarioData(1, 2, 3, 4, 5, 6),
-                            MachineData("xunil", "amd124", "42", "Moon", "42"),
-                            MatsimRunData("2.0", emptyList(), true)
-                    )
-            )
-        }
+        // add a few entries
+        statsRepository.save(
+                UsageStats(
+                        MemoryData(120.0, 42.0),
+                        ScenarioData(1, 2, 3, 4, 5, 6),
+                        MachineData("xunil", "amd124", "42", "Moon", "42"),
+                        MatsimRunData("2.0", emptyList(), true)
+                )
+        )
     }
 
     // no need to take care of clearing database: FongoRule takes care of it after test
