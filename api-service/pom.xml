@@ -18,6 +18,14 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+	<repositories>
+		<repository>
+            <!-- to be able to build dependency on "client" repo without distributing to JFrog et al. (yet) -->
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -51,6 +59,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.tduberne</groupId>
+			<artifactId>matsim-stats</artifactId>
+            <!-- TODO: improve using release tags? -->
+			<version>a30d668</version>
 		</dependency>
 	</dependencies>
 
