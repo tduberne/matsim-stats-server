@@ -90,7 +90,7 @@
             <groupId>com.github.tduberne</groupId>
             <artifactId>matsim-stats</artifactId>
             <!-- TODO: improve using release tags? -->
-            <version>a30d668</version>
+            <version>f7451da</version>
         </dependency>
     </dependencies>
 
