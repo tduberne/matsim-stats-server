@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 services:
     api:
@@ -13,14 +13,7 @@ services:
         image: mongo:4.0.0-xenial
         # TODO: credentials/setup?
         container_name: matsim_stats_mongo
-        environment:
-            - MONGO_DATA_DIR=/data/db
-        volumes:
-            - mongodb_matsim:/data/db 
         ports:
             - "27017:27017"
         restart: always
         command: --smallfiles
-
-volumes:
-    mongodb_matsim:
