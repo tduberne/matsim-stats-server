@@ -1,11 +1,8 @@
 package org.matsim.matsimstatsserverapi.controller
 
-import com.github.fakemongo.junit.FongoRule
 import org.junit.Assert
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.matsim.matsimstatsserverapi.MongoTestRule
 import org.matsim.matsimstatsserverapi.service.StatsService
 import org.matsim.usagestats.ScenarioData
 import org.matsim.usagestats.UsageStats
@@ -24,8 +21,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 @SpringBootTest
 @AutoConfigureMockMvc
 class UsageDataControllerTest {
-    @get:Rule
-    var fongoRule = FongoRule()
 
     @Autowired
     lateinit var mvc: MockMvc

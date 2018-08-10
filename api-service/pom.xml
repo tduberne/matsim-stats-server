@@ -34,9 +34,20 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -61,23 +72,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Not sure those ones are actually needed, from
-            https://medium.com/@rhwolniewicz/building-a-rest-service-with-kotlin-spring-boot-mongodb-and-junit-14d10faa594b
-
-
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-test-junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        -->
-
         <dependency>
             <!-- to have a fake MongoDB in-memory database for testing -->
             <groupId>com.github.fakemongo</groupId>
@@ -89,8 +83,7 @@
         <dependency>
             <groupId>com.github.tduberne</groupId>
             <artifactId>matsim-stats</artifactId>
-            <!-- TODO: improve using release tags? -->
-            <version>f7451da</version>
+            <version>4ef9d67</version>
         </dependency>
     </dependencies>
 
