@@ -1,13 +1,11 @@
 version: '3.2'
 
 services:
-    mongo:
-        environment:
-            - MONGO_DATA_DIR=/data/db
+    postgres:
         volumes:
             - type: volume
-              source: mongodb_matsim
-              target: /data/db 
+              source: postgres_matsim
+              target: /var/lib/postgresql/data
 
 volumes:
-    mongodb_matsim:
+    postgres_matsim:

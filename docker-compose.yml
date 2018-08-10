@@ -6,14 +6,15 @@ services:
         ports:
             - "8000:8000"
         links:
-            - mongo
+            - postgres
         restart: always
 
-    mongo:
-        image: mongo:4.0.0-xenial
-        # TODO: credentials/setup?
-        container_name: matsim_stats_mongo
+    postgres:
+        image: postgres:10.4-alpine
+        environment:
+            # TODO: specify externally
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: matsim_stats_db
         ports:
             - "27017:27017"
         restart: always
-        command: --smallfiles

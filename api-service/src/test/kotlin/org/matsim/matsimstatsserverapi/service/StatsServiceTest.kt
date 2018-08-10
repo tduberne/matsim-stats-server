@@ -4,6 +4,7 @@ import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.matsim.usagestats.UsageStats
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
@@ -20,6 +21,7 @@ class StatsServiceTest {
 
     @Test
     fun testEntriesExist() {
+        statsService.addEntry(UsageStats())
         Assert.assertEquals(1, statsService.allEntries().size)
     }
 }
