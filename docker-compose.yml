@@ -18,3 +18,21 @@ services:
         ports:
             - "27017:27017"
         restart: always
+
+    superset:
+        image: amancevice/superset:0.26.3
+        container_name: matsim_stats_superset
+        volumes:
+            - type: bind
+              source: ./superset/config/
+              target: /etc/superset/
+            - type: volume
+              source: superset_logs
+              target: /var/lib/superset
+        ports:
+            - "8088:8088"
+        links:
+            - postgres
+
+volumes:
+    superset_logs:
