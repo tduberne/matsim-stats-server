@@ -83,7 +83,7 @@
         <dependency>
             <groupId>com.github.tduberne</groupId>
             <artifactId>matsim-stats</artifactId>
-            <version>f6a5814</version>
+            <version>64c9baf</version>
         </dependency>
     </dependencies>
 
