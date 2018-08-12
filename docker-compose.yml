@@ -33,6 +33,14 @@ services:
         depends_on:
             - redis
 
+    dash:
+        build: dash
+        container_name: matsim_stats_dash
+        volumes:
+            - ./dash/src/:/app/src/
+        ports:
+            - "8050:8050"
+
     redis:
         image: redis
         restart: always
