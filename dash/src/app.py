@@ -38,25 +38,32 @@ def global_store():
     return psql.read_sql("SELECT * FROM usage_stats", connection)
 
 
-app.layout = html.Div(children=[
-    html.H1(children='MATSim Usage Statistics Dashboard'),
+# Defining this in a function allows to update the layout at page load.
+# This is important, as this for instance allows to update the values in dropdown based on what is
+# available in the database.
+def serve_layout():
+    return html.Div(children=[
+        html.H1(children='MATSim Usage Statistics Dashboard'),
 
-    html.Div(children='''
-        Summary of data collected about MATSim usage. Have fun!
-    '''),
+        html.Div(children='''
+            Summary of data collected about MATSim usage. Have fun!
+        '''),
 
-    dcc.Dropdown(
-        id='dropdown',
-        options=[{'label': i, 'value': i} for i in global_store().os_name.unique().tolist()],
-        value='a'
-    ),
+        dcc.Dropdown(
+            id='dropdown',
+            options=[{'label': i, 'value': i} for i in global_store().os_name.unique().tolist()],
+            value='a'
+        ),
 
-    dcc.Graph(id='memory-graph'),
+        dcc.Graph(id='memory-graph'),
 
-    # hidden divs used to "signal" data changes to callbacks
-    # They store value of various dropdowns etc, but provide them only after data was queried and cached.
-    html.Div(id='signal', style={'display': 'none'})
-])
+        # hidden divs used to "signal" data changes to callbacks
+        # They store value of various dropdowns etc, but provide them only after data was queried and cached.
+        html.Div(id='signal', style={'display': 'none'})
+    ])
+
+
+app.layout = serve_layout
 
 
 @app.callback(Output('signal', 'children'), [Input('dropdown', 'value')])
@@ -71,8 +78,8 @@ def compute_value(value):
 def memory_graph(value):
     d = global_store()
     return go.Scatter(
-        x=d.populationSize,
-        y=d.peakHeapMB,
+        x=d.population_size,
+        y=d.peak_heapmb,
         mode='markers'
     )
 
