@@ -4,5 +4,5 @@ version: '3.2'
 services:
     dash:
         environment:
-            - REDIS_CACHE_DEFAULT_TIMEOUT: 2
+            - REDIS_CACHE_DEFAULT_TIMEOUT=2
 
