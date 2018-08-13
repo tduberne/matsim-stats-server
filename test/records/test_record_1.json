@@ -1,0 +1,776 @@
+{
+  "memory" : {
+    "peakHeapMB" : 85.514152,
+    "peakNonHeapMB" : 37.935064
+  },
+  "scenario" : {
+    "populationSize" : 0,
+    "ntransitLines" : 0,
+    "nlinks" : 0,
+    "nnodes" : 0,
+    "nfacilities" : 0,
+    "ntransitStops" : 0
+  },
+  "machine" : {
+    "osName" : "Linux",
+    "osArch" : "amd64",
+    "osVersion" : "4.9.0-6-amd64",
+    "jvmVendor" : "Oracle Corporation",
+    "jvmVersion" : "1.8.0_77"
+  },
+  "matsim" : {
+    "matsimVersion" : "MATSim-Build: r46cea036b9f04685e8fa8044a5f32e055e0b14cb (2018-03-05 11:29:18)",
+    "guiceBindings" : [ {
+      "key" : "Key[type=com.google.inject.Stage, annotation=[none]]",
+      "type" : "com.google.inject.Stage",
+      "provider" : "of(DEVELOPMENT)",
+      "source" : "[unknown source]"
+    }, {
+      "key" : "Key[type=com.google.inject.Injector, annotation=[none]]",
+      "type" : "com.google.inject.Injector",
+      "provider" : "Provider<Injector>",
+      "source" : "[unknown source]"
+    }, {
+      "key" : "Key[type=java.util.logging.Logger, annotation=[none]]",
+      "type" : "java.util.logging.Logger",
+      "provider" : "Provider<Logger>",
+      "source" : "[unknown source]"
+    }, {
+      "key" : "Key[type=java.util.Set<org.matsim.core.mobsim.framework.listeners.MobsimListener>, annotation=[none]]",
+      "type" : "java.util.Set<org.matsim.core.mobsim.framework.listeners.MobsimListener>",
+      "provider" : "Multibinder<org.matsim.core.mobsim.framework.listeners.MobsimListener>",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<com.google.inject.Provider<org.matsim.core.mobsim.framework.listeners.MobsimListener>>, annotation=[none]]",
+      "type" : "java.util.Collection<com.google.inject.Provider<org.matsim.core.mobsim.framework.listeners.MobsimListener>>",
+      "provider" : "com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@7ef040b3",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<javax.inject.Provider<org.matsim.core.mobsim.framework.listeners.MobsimListener>>, annotation=[none]]",
+      "type" : "java.util.Collection<javax.inject.Provider<org.matsim.core.mobsim.framework.listeners.MobsimListener>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Collection<javax.inject.Provider<org.matsim.core.mobsim.framework.listeners.MobsimListener>>, annotation=[none]], provider=com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@7ef040b3}",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Set<org.matsim.vis.snapshotwriters.SnapshotWriter>, annotation=[none]]",
+      "type" : "java.util.Set<org.matsim.vis.snapshotwriters.SnapshotWriter>",
+      "provider" : "Multibinder<org.matsim.vis.snapshotwriters.SnapshotWriter>",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<com.google.inject.Provider<org.matsim.vis.snapshotwriters.SnapshotWriter>>, annotation=[none]]",
+      "type" : "java.util.Collection<com.google.inject.Provider<org.matsim.vis.snapshotwriters.SnapshotWriter>>",
+      "provider" : "com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@7ed75947",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<javax.inject.Provider<org.matsim.vis.snapshotwriters.SnapshotWriter>>, annotation=[none]]",
+      "type" : "java.util.Collection<javax.inject.Provider<org.matsim.vis.snapshotwriters.SnapshotWriter>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Collection<javax.inject.Provider<org.matsim.vis.snapshotwriters.SnapshotWriter>>, annotation=[none]], provider=com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@7ed75947}",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Set<org.matsim.core.events.handler.EventHandler>, annotation=[none]]",
+      "type" : "java.util.Set<org.matsim.core.events.handler.EventHandler>",
+      "provider" : "Multibinder<org.matsim.core.events.handler.EventHandler>",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<com.google.inject.Provider<org.matsim.core.events.handler.EventHandler>>, annotation=[none]]",
+      "type" : "java.util.Collection<com.google.inject.Provider<org.matsim.core.events.handler.EventHandler>>",
+      "provider" : "com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@d0187c72",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<javax.inject.Provider<org.matsim.core.events.handler.EventHandler>>, annotation=[none]]",
+      "type" : "java.util.Collection<javax.inject.Provider<org.matsim.core.events.handler.EventHandler>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Collection<javax.inject.Provider<org.matsim.core.events.handler.EventHandler>>, annotation=[none]], provider=com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@d0187c72}",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Set<org.matsim.core.controler.listener.ControlerListener>, annotation=[none]]",
+      "type" : "java.util.Set<org.matsim.core.controler.listener.ControlerListener>",
+      "provider" : "Multibinder<org.matsim.core.controler.listener.ControlerListener>",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<com.google.inject.Provider<org.matsim.core.controler.listener.ControlerListener>>, annotation=[none]]",
+      "type" : "java.util.Collection<com.google.inject.Provider<org.matsim.core.controler.listener.ControlerListener>>",
+      "provider" : "com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@e8fe0400",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<javax.inject.Provider<org.matsim.core.controler.listener.ControlerListener>>, annotation=[none]]",
+      "type" : "java.util.Collection<javax.inject.Provider<org.matsim.core.controler.listener.ControlerListener>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Collection<javax.inject.Provider<org.matsim.core.controler.listener.ControlerListener>>, annotation=[none]], provider=com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@e8fe0400}",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>",
+      "provider" : "Multibinder<java.util.Map$Entry<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>>",
+      "provider" : "com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@a41cda9",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>>, annotation=[none]], provider=com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@a41cda9}",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@4faeee40",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.Class<?>, javax.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.Class<?>, javax.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Map<java.lang.Class<?>, javax.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>, annotation=[none]], provider=com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@4faeee40}",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.Class<?>, org.matsim.utils.objectattributes.AttributeConverter<?>>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.Class<?>, org.matsim.utils.objectattributes.AttributeConverter<?>>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealMapProvider@4faeee40",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<java.lang.Class<?>, javax.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<java.lang.Class<?>, javax.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Set<java.util.Map$Entry<java.lang.Class<?>, javax.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>, annotation=[none]], provider=Multibinder<java.util.Map$Entry<java.lang.Class<?>, com.google.inject.Provider<org.matsim.utils.objectattributes.AttributeConverter<?>>>>}",
+      "source" : "com.google.inject.util.Modules$OverrideModule.configure(Modules.java:198)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=41, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=41, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.controler.listener.ControlerListener",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=41, type=MULTIBINDER, keyType=)], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@35b74c5c}",
+      "source" : "org.matsim.usagestats.UsageStatsModule.install(UsageStatsModule.kt:13)"
+    }, {
+      "key" : "Key[type=org.matsim.core.scenario.ScenarioLoaderImpl, annotation=[none]]",
+      "type" : "org.matsim.core.scenario.ScenarioLoaderImpl",
+      "provider" : "of(org.matsim.core.scenario.ScenarioLoaderImpl@3a44431a)",
+      "source" : "org.matsim.core.scenario.ScenarioByConfigModule.install(ScenarioByConfigModule.java:12)"
+    }, {
+      "key" : "Key[type=org.matsim.api.core.v01.network.Network, annotation=[none]]",
+      "type" : "org.matsim.api.core.v01.network.Network",
+      "provider" : "@Provides org.matsim.core.scenario.ScenarioByInstanceModule.provideNetwork(ScenarioByInstanceModule.java:39)",
+      "source" : "org.matsim.api.core.v01.network.Network org.matsim.core.scenario.ScenarioByInstanceModule.provideNetwork(org.matsim.api.core.v01.Scenario)"
+    }, {
+      "key" : "Key[type=org.matsim.api.core.v01.population.Population, annotation=[none]]",
+      "type" : "org.matsim.api.core.v01.population.Population",
+      "provider" : "@Provides org.matsim.core.scenario.ScenarioByInstanceModule.providePopulation(ScenarioByInstanceModule.java:43)",
+      "source" : "org.matsim.api.core.v01.population.Population org.matsim.core.scenario.ScenarioByInstanceModule.providePopulation(org.matsim.api.core.v01.Scenario)"
+    }, {
+      "key" : "Key[type=org.matsim.api.core.v01.population.PopulationFactory, annotation=[none]]",
+      "type" : "org.matsim.api.core.v01.population.PopulationFactory",
+      "provider" : "@Provides org.matsim.core.scenario.ScenarioByInstanceModule.providePopulationFactory(ScenarioByInstanceModule.java:47)",
+      "source" : "org.matsim.api.core.v01.population.PopulationFactory org.matsim.core.scenario.ScenarioByInstanceModule.providePopulationFactory(org.matsim.api.core.v01.population.Population)"
+    }, {
+      "key" : "Key[type=org.matsim.facilities.ActivityFacilities, annotation=[none]]",
+      "type" : "org.matsim.facilities.ActivityFacilities",
+      "provider" : "@Provides org.matsim.core.scenario.ScenarioByInstanceModule.provideActivityFacilities(ScenarioByInstanceModule.java:51)",
+      "source" : "org.matsim.facilities.ActivityFacilities org.matsim.core.scenario.ScenarioByInstanceModule.provideActivityFacilities(org.matsim.api.core.v01.Scenario)"
+    }, {
+      "key" : "Key[type=org.matsim.households.Households, annotation=[none]]",
+      "type" : "org.matsim.households.Households",
+      "provider" : "@Provides org.matsim.core.scenario.ScenarioByInstanceModule.provideHouseholds(ScenarioByInstanceModule.java:56)",
+      "source" : "org.matsim.households.Households org.matsim.core.scenario.ScenarioByInstanceModule.provideHouseholds(org.matsim.api.core.v01.Scenario)"
+    }, {
+      "key" : "Key[type=org.matsim.vehicles.Vehicles, annotation=[none]]",
+      "type" : "org.matsim.vehicles.Vehicles",
+      "provider" : "@Provides org.matsim.core.scenario.ScenarioByInstanceModule.provideVehicles(ScenarioByInstanceModule.java:61)",
+      "source" : "org.matsim.vehicles.Vehicles org.matsim.core.scenario.ScenarioByInstanceModule.provideVehicles(org.matsim.api.core.v01.Scenario)"
+    }, {
+      "key" : "Key[type=org.matsim.lanes.data.Lanes, annotation=[none]]",
+      "type" : "org.matsim.lanes.data.Lanes",
+      "provider" : "@Provides org.matsim.core.scenario.ScenarioByInstanceModule.provideLanes(ScenarioByInstanceModule.java:66)",
+      "source" : "org.matsim.lanes.data.Lanes org.matsim.core.scenario.ScenarioByInstanceModule.provideLanes(org.matsim.api.core.v01.Scenario)"
+    }, {
+      "key" : "Key[type=org.matsim.api.core.v01.Scenario, annotation=[none]]",
+      "type" : "org.matsim.api.core.v01.Scenario",
+      "provider" : "@Provides org.matsim.core.scenario.ScenarioByConfigModule.createScenario(ScenarioByConfigModule.java:9)[Scopes.SINGLETON]",
+      "source" : "private org.matsim.api.core.v01.Scenario org.matsim.core.scenario.ScenarioByConfigModule.createScenario(org.matsim.core.scenario.ScenarioLoaderImpl)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.ControlerI, annotation=[none]]",
+      "type" : "org.matsim.core.controler.ControlerI",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.ControlerI, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@30b6ffe0}[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.controler.NewControlerModule.install(NewControlerModule.java:8)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.ControlerListenerManager, annotation=[none]]",
+      "type" : "org.matsim.core.controler.ControlerListenerManager",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.ControlerListenerManager, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@93081b6[Scopes.SINGLETON]}",
+      "source" : "org.matsim.core.controler.NewControlerModule.install(NewControlerModule.java:10)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.PrepareForSim, annotation=[none]]",
+      "type" : "org.matsim.core.controler.PrepareForSim",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.PrepareForSim, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@2bec854f}",
+      "source" : "org.matsim.core.controler.NewControlerModule.install(NewControlerModule.java:11)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.TerminationCriterion, annotation=[none]]",
+      "type" : "org.matsim.core.controler.TerminationCriterion",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.TerminationCriterion, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@6950ed69}",
+      "source" : "org.matsim.core.controler.NewControlerModule.install(NewControlerModule.java:14)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.MatsimServices, annotation=[none]]",
+      "type" : "org.matsim.core.controler.MatsimServices",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.MatsimServices, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@7bf3a5d8}",
+      "source" : "org.matsim.core.controler.NewControlerModule.install(NewControlerModule.java:15)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.corelisteners.PlansScoring, annotation=[none]]",
+      "type" : "org.matsim.core.controler.corelisteners.PlansScoring",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.corelisteners.PlansScoring, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@6aa8e115[Scopes.SINGLETON]}",
+      "source" : "org.matsim.core.scoring.PlansScoringModule.install(PlansScoringModule.java:11)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.corelisteners.PlansReplanning, annotation=[none]]",
+      "type" : "org.matsim.core.controler.corelisteners.PlansReplanning",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.corelisteners.PlansReplanning, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@3fce8fd9[Scopes.SINGLETON]}",
+      "source" : "org.matsim.core.controler.corelisteners.ControlerDefaultCoreListenersModule.install(ControlerDefaultCoreListenersModule.java:38)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.corelisteners.PlansDumping, annotation=[none]]",
+      "type" : "org.matsim.core.controler.corelisteners.PlansDumping",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.corelisteners.PlansDumping, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@7b993c65[Scopes.SINGLETON]}",
+      "source" : "org.matsim.core.controler.corelisteners.ControlerDefaultCoreListenersModule.install(ControlerDefaultCoreListenersModule.java:39)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.corelisteners.EventsHandling, annotation=[none]]",
+      "type" : "org.matsim.core.controler.corelisteners.EventsHandling",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.corelisteners.EventsHandling, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@4ea5b703[Scopes.SINGLETON]}",
+      "source" : "org.matsim.core.controler.corelisteners.ControlerDefaultCoreListenersModule.install(ControlerDefaultCoreListenersModule.java:40)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.corelisteners.DumpDataAtEnd, annotation=[none]]",
+      "type" : "org.matsim.core.controler.corelisteners.DumpDataAtEnd",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.corelisteners.DumpDataAtEnd, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@5f0fd5a0[Scopes.SINGLETON]}",
+      "source" : "org.matsim.core.controler.corelisteners.ControlerDefaultCoreListenersModule.install(ControlerDefaultCoreListenersModule.java:41)"
+    }, {
+      "key" : "Key[type=org.matsim.core.api.experimental.events.EventsManager, annotation=[none]]",
+      "type" : "org.matsim.core.api.experimental.events.EventsManager",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.api.experimental.events.EventsManager, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@f627d13}[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.events.EventsManagerModule.install(EventsManagerModule.java:23)"
+    }, {
+      "key" : "Key[type=org.matsim.core.mobsim.framework.Mobsim, annotation=[none]]",
+      "type" : "org.matsim.core.mobsim.framework.Mobsim",
+      "provider" : "Key[type=org.matsim.core.mobsim.qsim.QSimProvider, annotation=[none]]",
+      "source" : "org.matsim.core.mobsim.qsim.QSimModule.configure(QSimModule.java:28)"
+    }, {
+      "key" : "Key[type=org.matsim.core.mobsim.qsim.qnetsimengine.QNetworkFactory, annotation=[none]]",
+      "type" : "org.matsim.core.mobsim.qsim.qnetsimengine.QNetworkFactory",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.mobsim.qsim.qnetsimengine.QNetworkFactory, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@895e367}",
+      "source" : "org.matsim.core.mobsim.qsim.QSimModule.configure(QSimModule.java:32)"
+    }, {
+      "key" : "Key[type=java.util.Collection<org.matsim.core.mobsim.qsim.AbstractQSimPlugin>, annotation=[none]]",
+      "type" : "java.util.Collection<org.matsim.core.mobsim.qsim.AbstractQSimPlugin>",
+      "provider" : "@Provides org.matsim.core.mobsim.qsim.QSimModule.provideQSimPlugins(QSimModule.java:43)",
+      "source" : "java.util.Collection org.matsim.core.mobsim.qsim.QSimModule.provideQSimPlugins(org.matsim.core.config.Config)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.util.TravelTime, annotation=@com.google.inject.name.Named(value=car)]",
+      "annotation" : "@com.google.inject.name.Named(value=car)",
+      "type" : "org.matsim.core.router.util.TravelTime",
+      "provider" : "Key[type=org.matsim.core.trafficmonitoring.ObservedLinkTravelTimes, annotation=[none]]",
+      "source" : "org.matsim.core.trafficmonitoring.TravelTimeCalculatorModule.install(TravelTimeCalculatorModule.java:81)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.costcalculators.TravelDisutilityFactory, annotation=@com.google.inject.name.Named(value=car)]",
+      "annotation" : "@com.google.inject.name.Named(value=car)",
+      "type" : "org.matsim.core.router.costcalculators.TravelDisutilityFactory",
+      "provider" : "of(org.matsim.core.router.costcalculators.RandomizingTimeDistanceTravelDisutilityFactory@39d76cb5)",
+      "source" : "org.matsim.core.router.costcalculators.TravelDisutilityModule.install(TravelDisutilityModule.java:34)"
+    }, {
+      "key" : "Key[type=org.matsim.core.scoring.ScoringFunctionFactory, annotation=[none]]",
+      "type" : "org.matsim.core.scoring.ScoringFunctionFactory",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.scoring.ScoringFunctionFactory, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@4c012563}",
+      "source" : "org.matsim.core.scoring.functions.CharyparNagelScoringFunctionModule.install(CharyparNagelScoringFunctionModule.java:32)"
+    }, {
+      "key" : "Key[type=org.matsim.core.scoring.functions.ScoringParametersForPerson, annotation=[none]]",
+      "type" : "org.matsim.core.scoring.functions.ScoringParametersForPerson",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.scoring.functions.ScoringParametersForPerson, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@7354b8c5}",
+      "source" : "org.matsim.core.scoring.functions.CharyparNagelScoringFunctionModule.install(CharyparNagelScoringFunctionModule.java:33)"
+    }, {
+      "key" : "Key[type=org.matsim.core.scoring.ExperiencedPlansService, annotation=[none]]",
+      "type" : "org.matsim.core.scoring.ExperiencedPlansService",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.scoring.ExperiencedPlansService, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@2b72cb8a}[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.scoring.ExperiencedPlansModule.install(ExperiencedPlansModule.java:10)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.MainModeIdentifier, annotation=[none]]",
+      "type" : "org.matsim.core.router.MainModeIdentifier",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.MainModeIdentifier, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@420a85c4}",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:44)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.util.LeastCostPathCalculatorFactory, annotation=[none]]",
+      "type" : "org.matsim.core.router.util.LeastCostPathCalculatorFactory",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.util.LeastCostPathCalculatorFactory, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@266374ef[Scopes.SINGLETON]}",
+      "source" : "org.matsim.core.router.LeastCostPathCalculatorModule.install(LeastCostPathCalculatorModule.java:40)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.name.Named(value=ride)]",
+      "annotation" : "@com.google.inject.name.Named(value=ride)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "org.matsim.core.router.FreespeedFactorRouting@6404f418",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:55)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.name.Named(value=pt)]",
+      "annotation" : "@com.google.inject.name.Named(value=pt)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "org.matsim.core.router.FreespeedFactorRouting@3e11f9e9",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:55)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.name.Named(value=bike)]",
+      "annotation" : "@com.google.inject.name.Named(value=bike)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "org.matsim.core.router.BeelineTeleportationRouting@1de5f259",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:58)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.name.Named(value=walk)]",
+      "annotation" : "@com.google.inject.name.Named(value=walk)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "org.matsim.core.router.BeelineTeleportationRouting@729d991e",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:58)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.name.Named(value=access_walk)]",
+      "annotation" : "@com.google.inject.name.Named(value=access_walk)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "org.matsim.core.router.BeelineTeleportationRouting@31fa1761",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:58)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.name.Named(value=egress_walk)]",
+      "annotation" : "@com.google.inject.name.Named(value=egress_walk)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "org.matsim.core.router.BeelineTeleportationRouting@957e06",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:58)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.name.Named(value=undefined)]",
+      "annotation" : "@com.google.inject.name.Named(value=undefined)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "org.matsim.core.router.BeelineTeleportationRouting@32502377",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:58)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.name.Named(value=car)]",
+      "annotation" : "@com.google.inject.name.Named(value=car)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "org.matsim.core.router.NetworkRoutingProvider@2c1b194a",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:66)"
+    }, {
+      "key" : "Key[type=org.matsim.core.replanning.selectors.PlanSelector<org.matsim.api.core.v01.population.Plan, org.matsim.api.core.v01.population.Person>, annotation=[none]]",
+      "type" : "org.matsim.core.replanning.selectors.PlanSelector<org.matsim.api.core.v01.population.Plan, org.matsim.api.core.v01.population.Person>",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.replanning.selectors.PlanSelector<org.matsim.api.core.v01.population.Plan, org.matsim.api.core.v01.population.Person>, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@6986852}",
+      "source" : "org.matsim.core.replanning.strategies.DefaultPlanStrategiesModule.install(DefaultPlanStrategiesModule.java:49)"
+    }, {
+      "key" : "Key[type=org.matsim.core.replanning.ReplanningContext, annotation=[none]]",
+      "type" : "org.matsim.core.replanning.ReplanningContext",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.replanning.ReplanningContext, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@658c5a19[Scopes.SINGLETON]}[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.replanning.StrategyManagerModule.install(StrategyManagerModule.java:48)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>",
+      "provider" : "Multibinder<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>",
+      "source" : "org.matsim.core.replanning.StrategyManagerModule.install(StrategyManagerModule.java:49)"
+    }, {
+      "key" : "Key[type=java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>>",
+      "provider" : "com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@54d50abd",
+      "source" : "org.matsim.core.replanning.StrategyManagerModule.install(StrategyManagerModule.java:49)"
+    }, {
+      "key" : "Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<javax.inject.Provider<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>>, annotation=[none]], provider=com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@54d50abd}",
+      "source" : "org.matsim.core.replanning.StrategyManagerModule.install(StrategyManagerModule.java:49)"
+    }, {
+      "key" : "Key[type=java.util.Map<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>, annotation=[none]]",
+      "type" : "java.util.Map<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@d22c3314",
+      "source" : "org.matsim.core.replanning.StrategyManagerModule.install(StrategyManagerModule.java:49)"
+    }, {
+      "key" : "Key[type=java.util.Map<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, javax.inject.Provider<org.matsim.core.replanning.PlanStrategy>>, annotation=[none]]",
+      "type" : "java.util.Map<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, javax.inject.Provider<org.matsim.core.replanning.PlanStrategy>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Map<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, javax.inject.Provider<org.matsim.core.replanning.PlanStrategy>>, annotation=[none]], provider=com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@d22c3314}",
+      "source" : "org.matsim.core.replanning.StrategyManagerModule.install(StrategyManagerModule.java:49)"
+    }, {
+      "key" : "Key[type=java.util.Map<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, org.matsim.core.replanning.PlanStrategy>, annotation=[none]]",
+      "type" : "java.util.Map<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, org.matsim.core.replanning.PlanStrategy>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealMapProvider@d22c3314",
+      "source" : "org.matsim.core.replanning.StrategyManagerModule.install(StrategyManagerModule.java:49)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, javax.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, javax.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Set<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, javax.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>, annotation=[none]], provider=Multibinder<java.util.Map$Entry<org.matsim.core.config.groups.StrategyConfigGroup$StrategySettings, com.google.inject.Provider<org.matsim.core.replanning.PlanStrategy>>>}",
+      "source" : "org.matsim.core.replanning.StrategyManagerModule.install(StrategyManagerModule.java:49)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=32, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=32, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.controler.listener.ControlerListener",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=32, type=MULTIBINDER, keyType=)], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@4b34fff9[Scopes.SINGLETON]}",
+      "source" : "org.matsim.analysis.LinkStatsModule.install(LinkStatsModule.java:47)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=33, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=33, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.controler.listener.ControlerListener",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=33, type=MULTIBINDER, keyType=)], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@16aa8654}",
+      "source" : "org.matsim.analysis.LegHistogramModule.install(LegHistogramModule.java:31)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=34, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=34, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.controler.listener.ControlerListener",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=34, type=MULTIBINDER, keyType=)], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@4f74980d}",
+      "source" : "org.matsim.analysis.LegTimesModule.install(LegTimesModule.java:32)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=35, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=35, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.controler.listener.ControlerListener",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=35, type=MULTIBINDER, keyType=)], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@6e15fe2}",
+      "source" : "org.matsim.analysis.TravelDistanceStatsModule.install(TravelDistanceStatsModule.java:11)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=36, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=36, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.controler.listener.ControlerListener",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=36, type=MULTIBINDER, keyType=)], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@398dada8[Scopes.SINGLETON]}",
+      "source" : "org.matsim.analysis.ScoreStatsModule.install(ScoreStatsModule.java:32)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.ScoreStats, annotation=[none]]",
+      "type" : "org.matsim.analysis.ScoreStats",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.analysis.ScoreStats, annotation=[none]], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@398dada8[Scopes.SINGLETON]}",
+      "source" : "org.matsim.analysis.ScoreStatsModule.install(ScoreStatsModule.java:33)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=37, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=37, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.controler.listener.ControlerListener",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=37, type=MULTIBINDER, keyType=)], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@7c51f34b[Scopes.SINGLETON]}",
+      "source" : "org.matsim.analysis.ModeStatsModule.install(ModeStatsModule.java:32)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=38, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=38, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.controler.listener.ControlerListener",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=38, type=MULTIBINDER, keyType=)], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@57576994}",
+      "source" : "org.matsim.counts.CountsModule.install(CountsModule.java:42)"
+    }, {
+      "key" : "Key[type=org.matsim.counts.Counts<org.matsim.api.core.v01.network.Link>, annotation=[none]]",
+      "type" : "org.matsim.counts.Counts<org.matsim.api.core.v01.network.Link>",
+      "provider" : "@Provides org.matsim.counts.CountsModule.provideLinkCounts(CountsModule.java:63)[Scopes.SINGLETON]",
+      "source" : "org.matsim.counts.Counts org.matsim.counts.CountsModule.provideLinkCounts(org.matsim.api.core.v01.Scenario,org.matsim.core.config.groups.CountsConfigGroup)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=39, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=39, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.controler.listener.ControlerListener",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.controler.listener.ControlerListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=39, type=MULTIBINDER, keyType=)], provider=com.google.inject.internal.ConstructorBindingImpl$Factory@55cf0d14}",
+      "source" : "org.matsim.core.population.VspPlansCleanerModule.install(VspPlansCleanerModule.java:34)"
+    }, {
+      "key" : "Key[type=org.matsim.core.mobsim.framework.listeners.MobsimListener, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=40, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=40, type=MULTIBINDER, keyType=)",
+      "type" : "org.matsim.core.mobsim.framework.listeners.MobsimListener",
+      "provider" : "Key[type=org.matsim.vis.snapshotwriters.SnapshotWritersModule$SnapshotWriterManagerProvider, annotation=[none]]",
+      "source" : "org.matsim.vis.snapshotwriters.SnapshotWritersModule.install(SnapshotWritersModule.java:45)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>>",
+      "provider" : "Multibinder<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>>",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>>>",
+      "provider" : "com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@3746625a",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>>>, annotation=[none]], provider=com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@3746625a}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@54097a3b",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.String, javax.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.String, javax.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Map<java.lang.String, javax.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=[none]], provider=com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@54097a3b}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.String, org.matsim.core.router.RoutingModule>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.String, org.matsim.core.router.RoutingModule>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealMapProvider@54097a3b",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<java.lang.String, javax.inject.Provider<org.matsim.core.router.RoutingModule>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<java.lang.String, javax.inject.Provider<org.matsim.core.router.RoutingModule>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Set<java.util.Map$Entry<java.lang.String, javax.inject.Provider<org.matsim.core.router.RoutingModule>>>, annotation=[none]], provider=Multibinder<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>>}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=43, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=43, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "ProviderMapEntry(egress_walk, Provider<org.matsim.core.router.RoutingModule>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=42, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=42, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=42, type=MAPBINDER, keyType=java.lang.String)], provider=org.matsim.core.router.BeelineTeleportationRouting@957e06}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=45, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=45, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "ProviderMapEntry(pt, Provider<org.matsim.core.router.RoutingModule>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=44, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=44, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=44, type=MAPBINDER, keyType=java.lang.String)], provider=org.matsim.core.router.FreespeedFactorRouting@3e11f9e9}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=47, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=47, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "ProviderMapEntry(car, Provider<org.matsim.core.router.RoutingModule>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=46, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=46, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=46, type=MAPBINDER, keyType=java.lang.String)], provider=org.matsim.core.router.NetworkRoutingProvider@2c1b194a}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=49, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=49, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "ProviderMapEntry(access_walk, Provider<org.matsim.core.router.RoutingModule>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=48, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=48, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=48, type=MAPBINDER, keyType=java.lang.String)], provider=org.matsim.core.router.BeelineTeleportationRouting@31fa1761}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=51, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=51, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "ProviderMapEntry(ride, Provider<org.matsim.core.router.RoutingModule>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=50, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=50, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=50, type=MAPBINDER, keyType=java.lang.String)], provider=org.matsim.core.router.FreespeedFactorRouting@6404f418}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=53, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=53, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "ProviderMapEntry(walk, Provider<org.matsim.core.router.RoutingModule>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=52, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=52, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=52, type=MAPBINDER, keyType=java.lang.String)], provider=org.matsim.core.router.BeelineTeleportationRouting@729d991e}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=55, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=55, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "ProviderMapEntry(bike, Provider<org.matsim.core.router.RoutingModule>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=54, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=54, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=54, type=MAPBINDER, keyType=java.lang.String)], provider=org.matsim.core.router.BeelineTeleportationRouting@1de5f259}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=57, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=57, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.RoutingModule>>",
+      "provider" : "ProviderMapEntry(undefined, Provider<org.matsim.core.router.RoutingModule>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=56, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=56, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.RoutingModule",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.RoutingModule, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=56, type=MAPBINDER, keyType=java.lang.String)], provider=org.matsim.core.router.BeelineTeleportationRouting@32502377}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>>",
+      "provider" : "Multibinder<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>>",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>>>",
+      "provider" : "com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@5573ec5d",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>>>, annotation=[none]], provider=com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@5573ec5d}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@a813c5b2",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.String, javax.inject.Provider<org.matsim.core.router.util.TravelTime>>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.String, javax.inject.Provider<org.matsim.core.router.util.TravelTime>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Map<java.lang.String, javax.inject.Provider<org.matsim.core.router.util.TravelTime>>, annotation=[none]], provider=com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@a813c5b2}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.String, org.matsim.core.router.util.TravelTime>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.String, org.matsim.core.router.util.TravelTime>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealMapProvider@a813c5b2",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<java.lang.String, javax.inject.Provider<org.matsim.core.router.util.TravelTime>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<java.lang.String, javax.inject.Provider<org.matsim.core.router.util.TravelTime>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Set<java.util.Map$Entry<java.lang.String, javax.inject.Provider<org.matsim.core.router.util.TravelTime>>>, annotation=[none]], provider=Multibinder<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>>}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=59, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=59, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.util.TravelTime>>",
+      "provider" : "ProviderMapEntry(car, Provider<org.matsim.core.router.util.TravelTime>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.util.TravelTime, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=58, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=58, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.util.TravelTime",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.util.TravelTime, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=58, type=MAPBINDER, keyType=java.lang.String)], provider=Key[type=org.matsim.core.trafficmonitoring.ObservedLinkTravelTimes, annotation=[none]]}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>",
+      "provider" : "Multibinder<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<com.google.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>>",
+      "provider" : "com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@ae98111c",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>>, annotation=[none]]",
+      "type" : "java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Collection<javax.inject.Provider<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>>, annotation=[none]], provider=com.google.inject.multibindings.Multibinder$RealMultibinder$RealMultibinderCollectionOfProvidersProvider@ae98111c}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@21df1231",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.String, javax.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.String, javax.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Map<java.lang.String, javax.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>, annotation=[none]], provider=com.google.inject.multibindings.MapBinder$RealMapBinder$RealProviderMapProvider@21df1231}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map<java.lang.String, org.matsim.core.router.costcalculators.TravelDisutilityFactory>, annotation=[none]]",
+      "type" : "java.util.Map<java.lang.String, org.matsim.core.router.costcalculators.TravelDisutilityFactory>",
+      "provider" : "com.google.inject.multibindings.MapBinder$RealMapBinder$RealMapProvider@21df1231",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Set<java.util.Map$Entry<java.lang.String, javax.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>, annotation=[none]]",
+      "type" : "java.util.Set<java.util.Map$Entry<java.lang.String, javax.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>",
+      "provider" : "FactoryProxy{key=Key[type=java.util.Set<java.util.Map$Entry<java.lang.String, javax.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>, annotation=[none]], provider=Multibinder<java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>>}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:123)"
+    }, {
+      "key" : "Key[type=java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=61, type=MULTIBINDER, keyType=)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=61, type=MULTIBINDER, keyType=)",
+      "type" : "java.util.Map$Entry<java.lang.String, com.google.inject.Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>>",
+      "provider" : "ProviderMapEntry(car, Provider<org.matsim.core.router.costcalculators.TravelDisutilityFactory>)",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.costcalculators.TravelDisutilityFactory, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=60, type=MAPBINDER, keyType=java.lang.String)]",
+      "annotation" : "@com.google.inject.multibindings.Element(setName=,uniqueId=60, type=MAPBINDER, keyType=java.lang.String)",
+      "type" : "org.matsim.core.router.costcalculators.TravelDisutilityFactory",
+      "provider" : "FactoryProxy{key=Key[type=org.matsim.core.router.costcalculators.TravelDisutilityFactory, annotation=@com.google.inject.multibindings.Element(setName=,uniqueId=60, type=MAPBINDER, keyType=java.lang.String)], provider=ConstantFactory{value=org.matsim.core.router.costcalculators.RandomizingTimeDistanceTravelDisutilityFactory@39d76cb5}[Scopes.SINGLETON]}",
+      "source" : "org.matsim.core.controler.Injector$3.configure(Injector.java:125)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.ControlerListenerManagerImpl, annotation=[none]]",
+      "type" : "org.matsim.core.controler.ControlerListenerManagerImpl",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@93081b6[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.controler.NewControlerModule.install(NewControlerModule.java:9)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.IterationStopWatch, annotation=[none]]",
+      "type" : "org.matsim.analysis.IterationStopWatch",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@5026735c[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.controler.NewControlerModule.install(NewControlerModule.java:12)"
+    }, {
+      "key" : "Key[type=org.matsim.core.controler.OutputDirectoryHierarchy, annotation=[none]]",
+      "type" : "org.matsim.core.controler.OutputDirectoryHierarchy",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@4416d64f[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.controler.NewControlerModule.install(NewControlerModule.java:13)"
+    }, {
+      "key" : "Key[type=org.matsim.core.scoring.ScoringFunctionsForPopulation, annotation=[none]]",
+      "type" : "org.matsim.core.scoring.ScoringFunctionsForPopulation",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@5a5338df[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.scoring.PlansScoringModule.install(PlansScoringModule.java:10)"
+    }, {
+      "key" : "Key[type=org.matsim.core.events.EventsManagerModule$EventHandlerRegistrator, annotation=[none]]",
+      "type" : "org.matsim.core.events.EventsManagerModule$EventHandlerRegistrator",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@332729ad[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.events.EventsManagerModule.install(EventsManagerModule.java:25)"
+    }, {
+      "key" : "Key[type=org.matsim.core.trafficmonitoring.TravelTimeCalculator, annotation=[none]]",
+      "type" : "org.matsim.core.trafficmonitoring.TravelTimeCalculator",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@63eef88a[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.trafficmonitoring.TravelTimeCalculatorModule.install(TravelTimeCalculatorModule.java:76)"
+    }, {
+      "key" : "Key[type=org.matsim.core.scoring.EventsToActivities, annotation=[none]]",
+      "type" : "org.matsim.core.scoring.EventsToActivities",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@282cb7c7[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.scoring.ExperiencedPlanElementsModule.install(ExperiencedPlanElementsModule.java:12)"
+    }, {
+      "key" : "Key[type=org.matsim.core.scoring.EventsToLegs, annotation=[none]]",
+      "type" : "org.matsim.core.scoring.EventsToLegs",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@6c0d7c83[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.scoring.ExperiencedPlanElementsModule.install(ExperiencedPlanElementsModule.java:13)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.TripRouter, annotation=[none]]",
+      "type" : "org.matsim.core.router.TripRouter",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@3b8f0a79",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:43)"
+    }, {
+      "key" : "Key[type=org.matsim.core.router.SingleModeNetworksCache, annotation=[none]]",
+      "type" : "org.matsim.core.router.SingleModeNetworksCache",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@7aaca91a[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.router.TripRouterModule.install(TripRouterModule.java:47)"
+    }, {
+      "key" : "Key[type=org.matsim.core.replanning.StrategyManager, annotation=[none]]",
+      "type" : "org.matsim.core.replanning.StrategyManager",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@4196c360[Scopes.SINGLETON]",
+      "source" : "org.matsim.core.replanning.StrategyManagerModule.install(StrategyManagerModule.java:47)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.CalcLinkStats, annotation=[none]]",
+      "type" : "org.matsim.analysis.CalcLinkStats",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@6d07a63d[Scopes.SINGLETON]",
+      "source" : "org.matsim.analysis.LinkStatsModule.install(LinkStatsModule.java:37)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.LinkStatsControlerListener, annotation=[none]]",
+      "type" : "org.matsim.analysis.LinkStatsControlerListener",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@4b34fff9[Scopes.SINGLETON]",
+      "source" : "org.matsim.analysis.LinkStatsModule.install(LinkStatsModule.java:46)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.VolumesAnalyzer, annotation=[none]]",
+      "type" : "org.matsim.analysis.VolumesAnalyzer",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@3148f668[Scopes.SINGLETON]",
+      "source" : "org.matsim.analysis.VolumesAnalyzerModule.install(VolumesAnalyzerModule.java:31)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.LegHistogram, annotation=[none]]",
+      "type" : "org.matsim.analysis.LegHistogram",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@7c214cc0",
+      "source" : "org.matsim.analysis.LegHistogramModule.install(LegHistogramModule.java:30)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.CalcLegTimes, annotation=[none]]",
+      "type" : "org.matsim.analysis.CalcLegTimes",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@3d246ea3[Scopes.SINGLETON]",
+      "source" : "org.matsim.analysis.LegTimesModule.install(LegTimesModule.java:31)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.TravelDistanceStats, annotation=[none]]",
+      "type" : "org.matsim.analysis.TravelDistanceStats",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@119cbf96[Scopes.SINGLETON]",
+      "source" : "org.matsim.analysis.TravelDistanceStatsModule.install(TravelDistanceStatsModule.java:10)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.ScoreStatsControlerListener, annotation=[none]]",
+      "type" : "org.matsim.analysis.ScoreStatsControlerListener",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@398dada8[Scopes.SINGLETON]",
+      "source" : "org.matsim.analysis.ScoreStatsModule.install(ScoreStatsModule.java:31)"
+    }, {
+      "key" : "Key[type=org.matsim.analysis.ModeStatsControlerListener, annotation=[none]]",
+      "type" : "org.matsim.analysis.ModeStatsControlerListener",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@7c51f34b[Scopes.SINGLETON]",
+      "source" : "org.matsim.analysis.ModeStatsModule.install(ModeStatsModule.java:31)"
+    }, {
+      "key" : "Key[type=org.matsim.counts.CountsModule$CountsInitializer, annotation=[none]]",
+      "type" : "org.matsim.counts.CountsModule$CountsInitializer",
+      "provider" : "com.google.inject.internal.ConstructorBindingImpl$Factory@79dc5318[Scopes.SINGLETON]",
+      "source" : "org.matsim.counts.CountsModule.install(CountsModule.java:43)"
+    } ],
+    "unexpectedShutdown" : false
+  }
+}
