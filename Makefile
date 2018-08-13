@@ -1,4 +1,4 @@
-.PHONY: build test-up prod-up down CLEAR_ALL_DATA configure-superset add-test-records
+.PHONY: build test-up prod-up down CLEAR_ALL_DATA configure-superset add-test-records psql
 
 
 test-up: build
@@ -8,6 +8,9 @@ test-up: build
 
 add-test-records:
 	cd test && ./add_test_records.sh
+
+psql:
+	docker exec -it matsim_stats_postgres psql -U postgres -d matsim_stats_db
 
 prod-up: build
 	docker-compose -f docker-compose.yml -f docker-compose_prod.yml up -d

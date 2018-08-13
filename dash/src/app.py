@@ -35,7 +35,7 @@ def global_store():
     connection = pg.connect(host="postgres", database="matsim_stats_db",
                             user="postgres", password="password")
 
-    return psql.read_sql("SELECT * FROM usage_stats", connection)
+    return psql.read_sql("SELECT * FROM usage_stats;", connection)
 
 
 # Defining this in a function allows to update the layout at page load.
@@ -77,10 +77,12 @@ def compute_value(value):
               [Input('signal', 'children')])
 def memory_graph(value):
     d = global_store()
-    return go.Scatter(
-        x=d.population_size,
-        y=d.peak_heapmb,
-        mode='markers'
+    return go.Figure(
+        data=[go.Scatter(
+            x=d.population_size,
+            y=d.peak_heapmb,
+            mode='markers'
+        )]
     )
 
 
