@@ -40,12 +40,17 @@ services:
             - ./dash/src/:/app/src/
         ports:
             - "8050:8050"
+        depends_on:
+            - redis
+        restart: always
 
     redis:
         image: redis
         restart: always
         volumes:
             - redis:/data
+        ports:
+            - "6379:6379"
 
 volumes:
     redis:
