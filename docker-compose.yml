@@ -3,10 +3,6 @@ version: '3.2'
 services:
     api:
         build: api-service
-        ports:
-            - "8000:8000"
-        links:
-            - postgres
         restart: always
 
     postgres:
@@ -16,8 +12,6 @@ services:
             # TODO: specify externally
             POSTGRES_PASSWORD: password
             POSTGRES_DB: matsim_stats_db
-        ports:
-            - "27017:27017"
         restart: always
 
     superset:
@@ -26,10 +20,6 @@ services:
         volumes:
             - ./superset/config/:/etc/superset/
             - ./superset/db/:/var/lib/superset/
-        ports:
-            - "8088:8088"
-        links:
-            - postgres
         depends_on:
             - redis
 
@@ -38,8 +28,6 @@ services:
         container_name: matsim_stats_dash
         volumes:
             - ./dash/src/:/app/src/
-        ports:
-            - "8050:8050"
         depends_on:
             - redis
         restart: always
@@ -49,8 +37,18 @@ services:
         restart: always
         volumes:
             - redis:/data
+
+    loadbalancer:
+        image: nginx:stable-alpine
+        container_name: matsim_stats_nginx
+        volumes:
+            - ./nginx/conf.d:/etc/nginx/conf.d:ro
         ports:
-            - "6379:6379"
+            - "80:80"
+        depends_on:
+            - dash
+            - api
+        restart: always
 
 volumes:
     redis:
