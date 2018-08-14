@@ -4,6 +4,8 @@ services:
     api:
         build: api-service
         restart: always
+        depends_on:
+            - postgres
 
     postgres:
         image: postgres:10.4-alpine
@@ -30,6 +32,8 @@ services:
             - ./dash/src/:/app/src/
         depends_on:
             - redis
+            - postgres
+            - api
         restart: always
 
     redis:

@@ -7,8 +7,12 @@ import psycopg2 as pg
 from dash.dependencies import Output, Input
 from flask_caching import Cache
 import os
+import logging
 
-app = dash.Dash()
+from werkzeug.contrib.fixers import ProxyFix
+
+app = dash.Dash(__name__)
+app.server.secret_key = os.environ.get('SECRET_KEY', 'default-value-used-in-development')
 
 # Setup Redis caching.
 cache = Cache()
@@ -88,3 +92,12 @@ def memory_graph(value):
 
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', debug=True)
+else:
+    # make Flask log messages visible on the console when running through gunicorn
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.server.logger.handlers = gunicorn_logger.handlers
+    app.server.logger.setLevel(gunicorn_logger.level)
+
+    # To make server understand the "Forwarded" header set by nginx when serving the app somewhere else than the root.
+    # Otherwise, the app does not manage to link to other parts of itself and crashes.
+    app.server.wsgi_app = ProxyFix(app.server.wsgi_app)
