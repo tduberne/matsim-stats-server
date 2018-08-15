@@ -49,9 +49,24 @@ def global_store(os_name, os_arch, matsim_version, jvm_vendor, jvm_version):
     connection = pg.connect(host="postgres", database="matsim_stats_db",
                             user="postgres", password="password")
 
-    # TODO apply filter
-    return psql.read_sql("SELECT * FROM usage_stats", connection)
+    return psql.read_sql("""SELECT *
+                            FROM usage_stats
+                            WHERE os_name IN {os_name}
+                            AND os_arch IN {os_arch}
+                            AND matsim_version IN {matsim_version}
+                            AND jvm_vendor IN {jvm_vendor}
+                            AND jvm_version IN {jvm_version}""".format(
+        os_name = to_sql_list(os_name),
+        os_arch = to_sql_list(os_arch),
+        matsim_version = to_sql_list(matsim_version),
+        jvm_vendor = to_sql_list(jvm_vendor),
+        jvm_version = to_sql_list(jvm_version)
+    ), connection)
 
+
+def to_sql_list(string_list):
+    placeholders = ', '.join(['\'%s\''] * len(string_list))
+    return "("+(placeholders % tuple(string_list))+")"
 
 @cache.memoize()
 def key_store():
