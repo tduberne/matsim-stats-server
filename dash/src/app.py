@@ -192,6 +192,57 @@ app.css.append_css({
     'external_url': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
 })
 
+
+app.css.append_css({
+    'external_url': 'http://www.matsim.org/lib/style.css'
+})
+
+app.index_string = '''
+<!DOCTYPE html>
+<html>
+    <head>
+        {%metas%}
+        <title>MATSim Usage Stats</title>
+        <link rel='icon' href='http://www.matsim.org/lib/favicon.ico' sizes='16x16' type='image/vnd.microsoft.icon'>
+        {%css%}
+    </head>
+    <body>
+        <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-brand page-scroll title-link"><a href='http://www.matsim.org/'>
+                  <img class="banner-logo" src="http://www.matsim.org/images/matsim-logo-white.png" alt="matsim logo" /></a></div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!--
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+               <ul class="nav navbar-nav navbar-right">
+                  {% for item in site.data.links.nav_links %}
+                   <li class="li-header"><a class="page-scroll" href="{{item[1]}}">{{item[0]}}</a></li>
+                  {% endfor %}
+               </ul>
+
+            </div>
+            -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    </header>
+        {%app_entry%}
+        <footer>
+         <div id="footer_wrap">
+            <footer class="footer" id="footer_content">
+                  <p>&copy; 2018 <a href="{{site.url}}/about-us">MATSim Community</a></p>
+              </footer>
+            </div>
+            {%config%}
+            {%scripts%}
+        </footer>
+    </body>
+</html>
+'''
+
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', debug=True)
 else:
