@@ -109,14 +109,31 @@ def serve_layout():
             Summary of data collected about MATSim usage. Have fun!
         '''),
 
-        dropdown('os-name-dropdown', 'os_name'),
-        dropdown('os-arch-dropdown', 'os_arch'),
-        dropdown('matsim-version-dropdown', 'matsim_version'),
-        dropdown('jvm-vendor-dropdown', 'jvm_vendor'),
-        dropdown('jvm-version-dropdown', 'jvm_version'),
+        html.H2(children='Data Filters'),
+
+        html.Div(children=[
+            'OS Name: ',
+            dropdown('os-name-dropdown', 'os_name')]),
+        html.Div(children=[
+            'OS Arch: ',
+            dropdown('os-arch-dropdown', 'os_arch')]),
+        html.Div(children=[
+            'MATSim v: ',
+            dropdown('matsim-version-dropdown', 'matsim_version')]),
+        html.Div(children=[
+            'JVM vendor: ',
+            dropdown('jvm-vendor-dropdown', 'jvm_vendor')]),
+        html.Div(children=[
+            'JVM Version: ',
+            dropdown('jvm-version-dropdown', 'jvm_version')]),
 
         html.Button('Apply Filters', id='filter-button'),
 
+        html.H2(children='Software Versions'),
+
+        html.H2(children='MATSim Features Enabled'),
+
+        html.H2(children='Memory Consumption'),
 
         dcc.Graph(id='memory-graph'),
 
