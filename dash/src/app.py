@@ -31,11 +31,10 @@ CACHE_CONFIG = {
     'CACHE_REDIS_URL': 'redis://redis:6379/1'}
 cache.init_app(app.server, config=CACHE_CONFIG)
 
-
 # Store the "State" objects in the order they appear in the arguments list.
 # This allows to only have to modify this list and the global store when adding filters,
 # instead of all possible callbacks
-filter_states = [State('os-name-dropdown', 'value' ),
+filter_states = [State('os-name-dropdown', 'value'),
                  State('os-arch-dropdown', 'value'),
                  State('matsim-version-dropdown', 'value'),
                  State('jvm-vendor-dropdown', 'value'),
@@ -56,17 +55,18 @@ def global_store(os_name, os_arch, matsim_version, jvm_vendor, jvm_version):
                             AND matsim_version IN {matsim_version}
                             AND jvm_vendor IN {jvm_vendor}
                             AND jvm_version IN {jvm_version}""".format(
-        os_name = to_sql_list(os_name),
-        os_arch = to_sql_list(os_arch),
-        matsim_version = to_sql_list(matsim_version),
-        jvm_vendor = to_sql_list(jvm_vendor),
-        jvm_version = to_sql_list(jvm_version)
+        os_name=to_sql_list(os_name),
+        os_arch=to_sql_list(os_arch),
+        matsim_version=to_sql_list(matsim_version),
+        jvm_vendor=to_sql_list(jvm_vendor),
+        jvm_version=to_sql_list(jvm_version)
     ), connection)
 
 
 def to_sql_list(string_list):
     placeholders = ', '.join(['\'%s\''] * len(string_list))
-    return "("+(placeholders % tuple(string_list))+")"
+    return "(" + (placeholders % tuple(string_list)) + ")"
+
 
 @cache.memoize()
 def key_store():
@@ -80,6 +80,7 @@ def key_store():
     def uniques(column):
         return psql.read_sql("""SELECT DISTINCT {column}
                                 FROM usage_stats""".format(column=column), connection)[column].tolist()
+
     return {
         "os_name": uniques("os_name"),
         "os_arch": uniques("os_arch"),
@@ -89,12 +90,27 @@ def key_store():
     }
 
 
+def Container(fluid=True, **kwargs):
+    if fluid:
+        return html.Div(className='container-fluid', **kwargs)
+    return html.Div(className='container', **kwargs)
+
+
+def Row(**kwargs):
+    return html.Div(className='row', **kwargs)
+
+
+def Col(className='col', **kwargs):
+    return html.Div(className=className, **kwargs)
+
+
 def dropdown(name, key):
-    return dcc.Dropdown(
-        id=name,
-        options=[{'label': i, 'value': i} for i in key_store()[key]],
-        value=key_store()[key],
-        multi=True
+    return Container(
+        children=dcc.Dropdown(
+            id=name,
+            options=[{'label': i, 'value': i} for i in key_store()[key]],
+            value=key_store()[key],
+            multi=True)
     )
 
 
@@ -111,21 +127,24 @@ def serve_layout():
 
         html.H2(children='Data Filters'),
 
-        html.Div(children=[
-            'OS Name: ',
-            dropdown('os-name-dropdown', 'os_name')]),
-        html.Div(children=[
-            'OS Arch: ',
-            dropdown('os-arch-dropdown', 'os_arch')]),
-        html.Div(children=[
-            'MATSim v: ',
-            dropdown('matsim-version-dropdown', 'matsim_version')]),
-        html.Div(children=[
-            'JVM vendor: ',
-            dropdown('jvm-vendor-dropdown', 'jvm_vendor')]),
-        html.Div(children=[
-            'JVM Version: ',
-            dropdown('jvm-version-dropdown', 'jvm_version')]),
+        Container(
+            children=[
+                Row(children=[
+                    Col('col-1', children='OS Name: '),
+                    Col(children=dropdown('os-name-dropdown', 'os_name'))]),
+                Row(children=[
+                    Col('col-1', children='OS Arch: '),
+                    Col(children=dropdown('os-arch-dropdown', 'os_arch'))]),
+                Row(children=[
+                    Col('col-1', children='MATSim v: '),
+                    Col(children=dropdown('matsim-version-dropdown', 'matsim_version'))]),
+                Row(children=[
+                    Col('col-1', children='JVM vendor: '),
+                    Col(children=dropdown('jvm-vendor-dropdown', 'jvm_vendor'))]),
+                Row(children=[
+                    Col('col-1', children='JVM Version: '),
+                    Col(children=dropdown('jvm-version-dropdown', 'jvm_version'))]),
+            ]),
 
         html.Button('Apply Filters', id='filter-button'),
 
@@ -144,6 +163,7 @@ def serve_layout():
 
 
 app.layout = serve_layout
+
 
 @app.callback(Output('signal', 'children'),
               [Input('filter-button', 'n_clicks')],
@@ -167,6 +187,10 @@ def memory_graph(signal, *args):
         )]
     )
 
+
+app.css.append_css({
+    'external_url': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+})
 
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', debug=True)
