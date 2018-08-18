@@ -18,9 +18,6 @@ prod-up: build
 configure-superset:
 	docker exec -it matsim_stats_superset superset-init
 
-psql:
-	docker exec -it matsim_stats_postgres psql -U postgres -d matsim_stats_db
-
 build:
 	docker-compose build
 
