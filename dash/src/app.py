@@ -11,7 +11,7 @@ import logging
 
 from werkzeug.contrib.fixers import ProxyFix
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, url_base_pathname='/dashboard')
 app.server.secret_key = os.environ.get('SECRET_KEY', 'default-value-used-in-development')
 
 # Setup Redis caching.
@@ -254,3 +254,4 @@ else:
     # To make server understand the "Forwarded" header set by nginx when serving the app somewhere else than the root.
     # Otherwise, the app does not manage to link to other parts of itself and crashes.
     app.server.wsgi_app = ProxyFix(app.server.wsgi_app)
+
