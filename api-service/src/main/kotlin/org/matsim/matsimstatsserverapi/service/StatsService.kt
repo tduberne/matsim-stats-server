@@ -1,6 +1,7 @@
 package org.matsim.matsimstatsserverapi.service
 
 import org.matsim.matsimstatsserverapi.repository.StatsRepository
+import org.matsim.matsimstatsserverapi.repository.UsageStatsRecord
 import org.matsim.usagestats.UsageStats
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -15,8 +16,8 @@ import org.springframework.stereotype.Service
  * @author thibautd
  */
 interface StatsService {
-    fun addEntry(stats: UsageStats)
-    fun allEntries(): List<UsageStats>
+    fun addEntry(stats: UsageStatsRecord)
+    fun allEntries(): List<UsageStatsRecord>
     // add various filters and methods to access partial data?
 }
 
@@ -25,9 +26,9 @@ class StatsServiceImpl : StatsService {
     @Autowired
     lateinit var statsRepository : StatsRepository
 
-    override fun addEntry(stats: UsageStats) {
+    override fun addEntry(stats: UsageStatsRecord) {
         statsRepository.save(stats)
     }
 
-    override fun allEntries(): List<UsageStats> = statsRepository.findAll().toList()
+    override fun allEntries(): List<UsageStatsRecord> = statsRepository.findAll().toList()
 }

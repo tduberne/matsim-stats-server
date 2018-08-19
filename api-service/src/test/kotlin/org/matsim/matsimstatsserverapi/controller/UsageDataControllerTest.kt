@@ -40,6 +40,6 @@ class UsageDataControllerTest {
         Assert.assertEquals("unexpected number of entries", 1, statsService.allEntries().size)
         Assert.assertEquals("unexpected data",
                 UsageStats(scenario = ScenarioData(nLinks = 42)),
-                statsService.allEntries()[0])
+                statsService.allEntries()[0].usageStats)
     }
 }

@@ -1,5 +1,6 @@
 package org.matsim.matsimstatsserverapi.controller
 
+import org.matsim.matsimstatsserverapi.repository.UsageStatsRecord
 import org.matsim.matsimstatsserverapi.service.StatsService
 import org.matsim.usagestats.UsageStats
 import org.slf4j.LoggerFactory
@@ -20,7 +21,7 @@ class UsageDataController {
     @PostMapping("/data")
     fun addData(@RequestBody data: UsageStats): Unit {
         try {
-            statsService.addEntry(data)
+            statsService.addEntry(UsageStatsRecord(usageStats=data))
         }
         catch (e: Exception) {
             log.warn("Problem persisting $data")
@@ -30,6 +31,6 @@ class UsageDataController {
 
     // TODO: restrict access?
     @GetMapping("/data")
-    fun getData(): List<UsageStats> = statsService.allEntries()
+    fun getData(): List<UsageStatsRecord> = statsService.allEntries()
 
 }
