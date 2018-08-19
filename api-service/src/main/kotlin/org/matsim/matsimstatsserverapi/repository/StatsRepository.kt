@@ -15,7 +15,7 @@ interface StatsRepository : JpaRepository<UsageStatsRecord, String>
 @Embeddable
 data class Metadata(var date: Timestamp = Timestamp.valueOf(LocalDateTime.now()))
 
-@Entity
+@Entity @Table(name="usage_stats")
 data class UsageStatsRecord(
         @Embedded
         var metadata: Metadata = Metadata(),
