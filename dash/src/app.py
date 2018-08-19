@@ -1,7 +1,11 @@
+import re
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import pandas.io.sql as psql
+import pandas as pd
+import numpy as np
 import plotly.graph_objs as go
 import psycopg2 as pg
 from dash.dependencies import Output, Input, State
@@ -55,6 +59,30 @@ def global_store(os_name, os_arch, matsim_version, jvm_vendor, jvm_version):
                             AND matsim_version IN {matsim_version}
                             AND jvm_vendor IN {jvm_vendor}
                             AND jvm_version IN {jvm_version}""".format(
+        os_name=to_sql_list(os_name),
+        os_arch=to_sql_list(os_arch),
+        matsim_version=to_sql_list(matsim_version),
+        jvm_vendor=to_sql_list(jvm_vendor),
+        jvm_version=to_sql_list(jvm_version)
+    ), connection)
+
+
+@cache.memoize()
+def global_store_guice(os_name, os_arch, matsim_version, jvm_vendor, jvm_version):
+    """Gets the data, possibly filtered by the parameters.
+       Data is cached using Redis, avoiding to recompute already known data as much as possible."""
+    connection = pg.connect(host="postgres", database="matsim_stats_db",
+                            user="postgres", password="password")
+
+    return psql.read_sql("""SELECT DISTINCT usage_stats.id, guice_binding_data.type
+                            FROM usage_stats 
+                            JOIN guice_binding_data ON usage_stats.id=guice_binding_data.usage_data_id
+                            AND os_name IN {os_name}
+                            AND os_arch IN {os_arch}
+                            AND matsim_version IN {matsim_version}
+                            AND jvm_vendor IN {jvm_vendor}
+                            AND jvm_version IN {jvm_version}
+                            """.format(
         os_name=to_sql_list(os_name),
         os_arch=to_sql_list(os_arch),
         matsim_version=to_sql_list(matsim_version),
@@ -150,6 +178,14 @@ def serve_layout():
 
         html.H2(children='Software Versions'),
 
+        Container(
+            children=[
+                Row(children=[
+                    dcc.Graph(id='guice-graph')
+                ])
+            ]
+        ),
+
         html.H2(children='MATSim Features Enabled'),
 
         html.H2(children='Memory Consumption'),
@@ -158,7 +194,8 @@ def serve_layout():
 
         # hidden divs used to "signal" data changes to callbacks
         # They store value of various dropdowns etc, but provide them only after data was queried and cached.
-        html.Div(id='signal', style={'display': 'none'})
+        html.Div(id='signal', style={'display': 'none'}),
+        html.Div(id='signal-guice', style={'display': 'none'})
     ])
 
 
@@ -173,6 +210,13 @@ def compute_value(n_clicks, *args):
     global_store(*args)
     return n_clicks
 
+@app.callback(Output('signal-guice', 'children'),
+              [Input('filter-button', 'n_clicks')],
+              filter_states)
+def compute_guice_value(n_clicks, *args):
+    # compute value and send a signal when done
+    global_store_guice(*args)
+    return n_clicks
 
 @app.callback(Output('memory-graph', 'figure'),
               [Input('signal', 'children')],
@@ -184,6 +228,48 @@ def memory_graph(signal, *args):
             x=d.population_size,
             y=d.peak_heapmb,
             mode='markers'
+        )]
+    )
+
+
+# regular expression that is able to get all java classes from a generic type
+java_class_re = re.compile('[^<>]+')
+contrib_re = re.compile('org\.matsim\.contrib\.[^.]+')
+domain_re = re.compile('^[^.]+.?[^.]+')
+
+def get_relevant_package(pkg_name):
+    if pkg_name.startswith('org.matsim.contrib'):
+        return contrib_re.findall(pkg_name)[0]
+    domain = domain_re.findall(pkg_name)
+    if len(domain) == 0:
+        # happens for instance with ? in generics
+        return np.nan
+    return domain[0]
+
+@app.callback(Output('guice-graph', 'figure'),
+              [Input('signal-guice', 'children')],
+              filter_states)
+def memory_graph(signal, *args):
+    d = global_store_guice(*args)
+    counts = d.groupby('id')['type'] \
+        .apply(lambda s: s.apply(lambda x: pd.Series(java_class_re.findall(x))))\
+        .unstack()\
+        .dropna()\
+        [lambda x: x != '']\
+        .apply(get_relevant_package)\
+        .drop_duplicates()\
+        .reset_index()\
+        # problem here: column names were lost...
+        .sort_values(by='type')\
+        .groupby('type')\
+        .count()
+
+    print(counts)
+
+    return go.Figure(
+        data=[go.Bar(
+            x=counts.type,
+            y=counts.id
         )]
     )
 
