@@ -12,6 +12,7 @@ from dash.dependencies import Output, Input, State
 from flask_caching import Cache
 import os
 import logging
+import datetime as dt
 
 from werkzeug.contrib.fixers import ProxyFix
 
@@ -181,7 +182,12 @@ def serve_layout():
         Container(
             children=[
                 Row(children=[
-                    dcc.Graph(id='guice-graph')
+                    Col(children=[
+                        html.H3("Runs over time"),
+                        dcc.Graph(id='time-graph')] ),
+                    Col(children=[
+                        html.H3("Packages bound by Guice"),
+                        dcc.Graph(id='guice-graph')] )
                 ])
             ]
         ),
@@ -210,6 +216,7 @@ def compute_value(n_clicks, *args):
     global_store(*args)
     return n_clicks
 
+
 @app.callback(Output('signal-guice', 'children'),
               [Input('filter-button', 'n_clicks')],
               filter_states)
@@ -217,6 +224,7 @@ def compute_guice_value(n_clicks, *args):
     # compute value and send a signal when done
     global_store_guice(*args)
     return n_clicks
+
 
 @app.callback(Output('memory-graph', 'figure'),
               [Input('signal', 'children')],
@@ -232,10 +240,39 @@ def memory_graph(signal, *args):
     )
 
 
+@app.callback(Output('time-graph', 'figure'),
+              [Input('signal', 'children')],
+              filter_states)
+def memory_graph(signal, *args):
+    d = global_store(*args)\
+        .assign(count=0,
+               day=lambda df: df.date\
+                    .astype(dt.datetime)\
+                    .apply(lambda d: d.date())\
+                    .astype(np.datetime64))\
+        [['day', 'count']]\
+        .groupby('day')\
+        .count()\
+        .reset_index()
+
+    all = pd.DataFrame({
+        'day': pd.date_range(d.day.min() - np.timedelta64(1,'D'), d.day.max()).to_series()
+    }).merge(d, 'outer', 'day', )\
+        .fillna(0)
+
+    return go.Figure(
+        data=[go.Scatter(
+            x=all.day,
+            y=all['count']
+        )]
+    )
+
+
 # regular expression that is able to get all java classes from a generic type
 java_class_re = re.compile('[^<>\s]+')
 contrib_re = re.compile('org\.matsim\.contrib\.[^.]+')
 domain_re = re.compile('^[^.]+.?[^.]+')
+
 
 def get_relevant_package(pkg_name):
     if pkg_name.startswith('org.matsim.contrib'):
@@ -272,6 +309,7 @@ def memory_graph(signal, *args):
             orientation='h'
         )]
     )
+
 
 
 app.css.append_css({
