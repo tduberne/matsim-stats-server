@@ -233,7 +233,7 @@ def memory_graph(signal, *args):
 
 
 # regular expression that is able to get all java classes from a generic type
-java_class_re = re.compile('[^<>]+')
+java_class_re = re.compile('[^<>\s]+')
 contrib_re = re.compile('org\.matsim\.contrib\.[^.]+')
 domain_re = re.compile('^[^.]+.?[^.]+')
 
@@ -246,30 +246,30 @@ def get_relevant_package(pkg_name):
         return np.nan
     return domain[0]
 
+
 @app.callback(Output('guice-graph', 'figure'),
               [Input('signal-guice', 'children')],
               filter_states)
 def memory_graph(signal, *args):
     d = global_store_guice(*args)
-    counts = d.groupby('id')['type'] \
-        .apply(lambda s: s.apply(lambda x: pd.Series(java_class_re.findall(x))))\
+    counts = d.set_index('id').type \
+        .apply(java_class_re.findall) \
+        .apply(pd.Series)\
         .unstack()\
         .dropna()\
         [lambda x: x != '']\
-        .apply(get_relevant_package)\
+        .apply(get_relevant_package) \
+        .reset_index(level=1)\
         .drop_duplicates()\
-        .reset_index()\
-        # problem here: column names were lost...
-        .sort_values(by='type')\
-        .groupby('type')\
+        .sort_values(by=0)\
+        .groupby(0)\
         .count()
-
-    print(counts)
 
     return go.Figure(
         data=[go.Bar(
-            x=counts.type,
-            y=counts.id
+            y=counts.index,
+            x=counts.id,
+            orientation='h'
         )]
     )
 
