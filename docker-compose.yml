@@ -5,6 +5,8 @@ services:
         build: api-service
         container_name: matsim_stats_api
         restart: always
+        env_file:
+            - env/ipinfo.env
         depends_on:
             - postgres
 

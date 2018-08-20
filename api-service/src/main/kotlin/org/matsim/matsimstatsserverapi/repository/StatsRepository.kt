@@ -13,7 +13,9 @@ import javax.persistence.*
 interface StatsRepository : JpaRepository<UsageStatsRecord, String>
 
 @Embeddable
-data class Metadata(var date: Timestamp = Timestamp.valueOf(LocalDateTime.now()))
+data class Metadata(var date: Timestamp = Timestamp.valueOf(LocalDateTime.now()),
+                    var x: Double? = null,
+                    var y: Double? = null)
 
 @Entity @Table(name="usage_stats")
 data class UsageStatsRecord(
