@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.client.RestTemplate
+import java.net.InetAddress
 import javax.servlet.http.HttpServletRequest
 
 /**
@@ -44,27 +45,45 @@ class UsageDataController {
 
         log.info("Looking for location for IPs $clients")
 
-        // TODO: enable REDIS caching
-        val token = System.getenv("IPINFO_TOKEN")
-        val tokenString = if (token != null) "?token=$token" else ""
-
         // get location for first public IP.
         // Might be useful for clients located behind a proxy in the LAN, if proxy forwards local IP
         // (no idea how often this might happen, if at all...)
         for (ip in clients) {
-            try {
-                val geo = RestTemplate().getForObject("https://ipinfo.io/$ip/geo$tokenString", Geo::class.java)
+            val ia = InetAddress.getByName(ip)
 
-                if (geo != null) {
-                    // TODO: aggregate/add noise for improved anonymity?
-                    return Metadata(x=geo.getX(), y=geo.getY())
-                }
+            // go to first global address.
+            // Idea is to skip local addresses that would be forwarded by a proxy.
+            // No idea if this actually happens...
+            if (ia.isLinkLocalAddress || ia.isSiteLocalAddress) continue
+
+            try {
+                val geo = getGeolocation(ip)
+
+                return Metadata(
+                        // TODO: aggregate/add noise for improved anonymity?
+                        x=geo?.getX(),
+                        y=geo?.getY(),
+                        // TODO: hash? could still then have a table to check if AWS etc.
+                        hostname = ia.canonicalHostName)
             } catch (e: Exception) {
                 log.error("Problem occurred while looking for geolocation", e)
             }
         }
 
         return Metadata()
+    }
+
+    fun getGeolocation(ip: String): Geo? {
+        // TODO: enable REDIS caching
+        val token = System.getenv("IPINFO_TOKEN")
+        val tokenString = if (token != null) "?token=$token" else ""
+
+        try {
+            return RestTemplate().getForObject("https://ipinfo.io/$ip/geo$tokenString", Geo::class.java)
+        } catch (e: Exception) {
+            log.error("Problem occurred while looking for geolocation", e)
+        }
+        return null
     }
 
     // TODO: restrict access?
