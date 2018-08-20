@@ -187,7 +187,10 @@ def serve_layout():
                         dcc.Graph(id='time-graph')] ),
                     Col(children=[
                         html.H3("Packages bound by Guice"),
-                        dcc.Graph(id='guice-graph')] )
+                        dcc.Graph(id='guice-graph')] ),
+                    Col(children=[
+                        html.H3("Server locations"),
+                        dcc.Graph(id='run-map')] )
                 ])
             ]
         ),
@@ -267,6 +270,25 @@ def memory_graph(signal, *args):
         )]
     )
 
+
+@app.callback(Output('run-map', 'figure'),
+              [Input('signal', 'children')],
+              filter_states)
+def client_map(signal, *args):
+    d = global_store(*args)
+
+    return go.Figure(
+        data=[go.Scattergeo(
+            lon=d.x,
+            lat=d.y
+        )],
+        layout=go.Layout(
+            geo={
+                'showland': True,
+                'showcountries': True
+            }
+        )
+    )
 
 # regular expression that is able to get all java classes from a generic type
 java_class_re = re.compile('[^<>\s]+')
