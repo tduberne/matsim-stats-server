@@ -1,4 +1,4 @@
-.PHONY: build test-up prod-up down CLEAR_ALL_DATA configure-superset add-test-records psql
+.PHONY: build test-up prod-up down CLEAR_ALL_DATA add-test-records psql
 
 
 test-up: build
@@ -14,9 +14,6 @@ psql:
 
 prod-up: build
 	docker-compose -f docker-compose.yml -f docker-compose_prod.yml up -d
-	
-configure-superset:
-	docker exec -it matsim_stats_superset superset-init
 
 build:
 	docker-compose build
