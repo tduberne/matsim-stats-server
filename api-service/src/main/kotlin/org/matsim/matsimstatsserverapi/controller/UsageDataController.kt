@@ -18,7 +18,9 @@ import javax.servlet.http.HttpServletRequest
 @RestController
 @RequestMapping("/api")
 class UsageDataController {
-    private val log = LoggerFactory.getLogger(UsageDataController::class.java)
+    companion object {
+        private val log = LoggerFactory.getLogger(UsageDataController::class.java)
+    }
 
     @Autowired
     lateinit var statsService: StatsService
@@ -41,14 +43,17 @@ class UsageDataController {
     fun metadata(servlet: HttpServletRequest?): Metadata {
         if (servlet == null) return Metadata()
 
-        val clients = servlet.getHeader("X-FORWARDED-FOR")?.split(", ") ?: listOf(servlet.remoteAddr)
+        val clients: List<String> = servlet.getHeader("X-FORWARDED-FOR")?.split(", ") ?: emptyArray()
 
         log.info("Looking for location for IPs $clients")
 
         // get location for first public IP.
         // Might be useful for clients located behind a proxy in the LAN, if proxy forwards local IP
         // (no idea how often this might happen, if at all...)
-        for (ip in clients) {
+        // end with the remote address, which, in a reverse proxy setting, will be the proxy.
+        // This is potentially useful for connections coming from the LAN, if the proxy adds an IP that
+        // can be located...
+        for (ip in clients + servlet.remoteAddr) {
             val ia = InetAddress.getByName(ip)
 
             // go to first global address.
