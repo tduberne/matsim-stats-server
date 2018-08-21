@@ -40,7 +40,7 @@ class UsageDataController {
     fun metadata(servlet: HttpServletRequest?): Metadata {
         if (servlet == null) return Metadata()
 
-        val clients: List<String> = servlet.getHeader("X-FORWARDED-FOR")?.split(", ") ?: emptyList()
+        val clients: List<String> = (servlet.getHeader("X-FORWARDED-FOR")?.split(", ") ?: emptyList()) + servlet.remoteAddr
 
         log.info("Looking for location for IPs $clients")
 
@@ -50,7 +50,7 @@ class UsageDataController {
         // end with the remote address, which, in a reverse proxy setting, will be the proxy.
         // This is potentially useful for connections coming from the LAN, if the proxy adds an IP that
         // can be located...
-        for (ip in clients + servlet.remoteAddr) {
+        for (ip in clients) {
             val ia = InetAddress.getByName(ip)
 
             // go to first global address.
