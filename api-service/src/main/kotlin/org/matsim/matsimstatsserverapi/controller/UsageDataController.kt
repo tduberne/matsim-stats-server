@@ -18,9 +18,6 @@ import javax.servlet.http.HttpServletRequest
 @RestController
 @RequestMapping("/api")
 class UsageDataController {
-    companion object {
-        private val log = LoggerFactory.getLogger(UsageDataController::class.java)
-    }
 
     @Autowired
     lateinit var statsService: StatsService
