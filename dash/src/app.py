@@ -199,7 +199,14 @@ def serve_layout():
 
         html.H2(children='Memory Consumption'),
 
-        dcc.Graph(id='memory-graph'),
+        Container(
+            children=[
+                Row(children=[
+                    Col(children=dcc.Graph(id='memory-graph')),
+                    Col(children=dcc.Graph(id='memory-3d-graph'))
+                ])
+            ]
+        ),
 
         # hidden divs used to "signal" data changes to callbacks
         # They store value of various dropdowns etc, but provide them only after data was queried and cached.
@@ -244,6 +251,29 @@ def memory_graph(signal, *args):
             title='Memory Use',
             xaxis={'title': 'population size'},
             yaxis={'title': 'Peak Heap Space After GC (MB)'}
+        )
+    )
+
+
+@app.callback(Output('memory-3d-graph', 'figure'),
+              [Input('signal', 'children')],
+              filter_states)
+def memory_3d_graph(signal, *args):
+    d = global_store(*args)
+    return go.Figure(
+        data=[go.Scatter3d(
+            x=d.population_size,
+            y=d.n_links,
+            z=d.peak_heapmb,
+            mode='markers'
+        )],
+        layout=go.Layout(
+            title='Memory Use',
+            scene=go.Scene(
+                xaxis={'title': 'population size'},
+                yaxis={'title': '# links'},
+                zaxis={'title': 'Peak Heap Space After GC (MB)'}
+            )
         )
     )
 
