@@ -239,14 +239,19 @@ def memory_graph(signal, *args):
             x=d.population_size,
             y=d.peak_heapmb,
             mode='markers'
-        )]
+        )],
+        layout=go.Layout(
+            title='Memory Use',
+            xaxis={'title': 'population size'},
+            yaxis={'title': 'Peak Heap Space After GC (MB)'}
+        )
     )
 
 
 @app.callback(Output('time-graph', 'figure'),
               [Input('signal', 'children')],
               filter_states)
-def memory_graph(signal, *args):
+def time_graph(signal, *args):
     d = global_store(*args)\
         .assign(count=0,
                day=lambda df: df.date\
@@ -267,7 +272,12 @@ def memory_graph(signal, *args):
         data=[go.Scatter(
             x=all.day,
             y=all['count']
-        )]
+        )],
+        layout=go.Layout(
+            xaxis={'title': 'date',
+                   'tickformat': '%d %b %y'},
+            yaxis={'title': '# runs'}
+        )
     )
 
 
@@ -289,6 +299,7 @@ def client_map(signal, *args):
             }
         )
     )
+
 
 # regular expression that is able to get all java classes from a generic type
 java_class_re = re.compile('[^<>\s]+')
