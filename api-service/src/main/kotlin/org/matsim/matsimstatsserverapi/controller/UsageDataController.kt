@@ -40,7 +40,7 @@ class UsageDataController {
     fun metadata(servlet: HttpServletRequest?): Metadata {
         if (servlet == null) return Metadata()
 
-        val clients: List<String> = servlet.getHeader("X-FORWARDED-FOR")?.split(", ") ?: emptyArray()
+        val clients: List<String> = servlet.getHeader("X-FORWARDED-FOR")?.split(", ") ?: emptyList()
 
         log.info("Looking for location for IPs $clients")
 
